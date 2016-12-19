@@ -7,7 +7,10 @@ public class CommandChainFactory
 		AbstractCommandChain chooseCommand = new ChooseCommand(CommandEnum.CHOOSE);
 		AbstractCommandChain rngCommand = new RngCommand(CommandEnum.RNG);
 		
-		chooseCommand.nextCommand = rngCommand;
+		AbstractCommandChain coinFlipCommand = new CoinFlipCommand(CommandEnum.COINFLIP);
+		
+		chooseCommand.setNextCommand(rngCommand);
+		rngCommand.setNextCommand(coinFlipCommand);
 		
 		return chooseCommand;
 	}

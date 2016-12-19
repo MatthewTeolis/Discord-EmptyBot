@@ -9,7 +9,8 @@ import com.matthewteolis.discord.emptybot.exceptions.CommandNotFoundException;
 public enum CommandEnum
 {
 	CHOOSE(Bot.getPrefix() + "choose (.*)"), 
-	RNG(Bot.getPrefix() + "rng (.*)");
+	RNG(Bot.getPrefix() + "rng (.*)"),
+	COINFLIP(Bot.getPrefix() + "coinflip");
 	
 	private String regex;
 	

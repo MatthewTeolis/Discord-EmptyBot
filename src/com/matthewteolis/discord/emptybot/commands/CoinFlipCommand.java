@@ -2,35 +2,34 @@ package com.matthewteolis.discord.emptybot.commands;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.MessageChannel;
 
 public class CoinFlipCommand extends AbstractCommandChain
 {
-	private File headsFile = new File("images/heads.png");
-	private File tailsFile = new File("images/tails.png");
+	private static final String IMAGE_PATH = "images/coin/";
+	private File[] files;
 	
 	public CoinFlipCommand(CommandEnum command)
 	{
 		this.command = command;
+		files = new File[2];
+		
+		files[0] = new File(IMAGE_PATH + "heads.png");
+		files[1] = new File(IMAGE_PATH + "tails.png");
 	}
 
 	@Override
 	protected void process(Message message)
 	{
-		MessageChannel channel = message.getChannel();
-		
 		try
 		{
-			if(Math.round(Math.random()) == 0)
-			{
-				channel.sendFile(headsFile, null).queue();
-			}
-			else
-			{
-				channel.sendFile(tailsFile, null).queue();
-			}
+			int randomNumber = (int)Math.round(Math.random());
+			File randomFile = files[randomNumber];
+			
+			message.getChannel().sendFile(randomFile, null).queue();
 		}
 		catch(IOException e)
 		{

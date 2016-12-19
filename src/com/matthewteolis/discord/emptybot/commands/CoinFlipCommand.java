@@ -2,14 +2,15 @@ package com.matthewteolis.discord.emptybot.commands;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
+
+import com.matthewteolis.discord.emptybot.helpers.Helper;
 
 import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.MessageChannel;
 
 public class CoinFlipCommand extends AbstractCommandChain
 {
 	private static final String IMAGE_PATH = "images/coin/";
+	
 	private File[] files;
 	
 	public CoinFlipCommand(CommandEnum command)
@@ -26,10 +27,10 @@ public class CoinFlipCommand extends AbstractCommandChain
 	{
 		try
 		{
-			int randomNumber = (int)Math.round(Math.random());
+			int randomNumber = Helper.randomWithRange(0, 1);
 			File randomFile = files[randomNumber];
 			
-			message.getChannel().sendFile(randomFile, null).queue();
+			Helper.botSendFile(message.getChannel(), randomFile);
 		}
 		catch(IOException e)
 		{

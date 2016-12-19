@@ -8,29 +8,26 @@ import net.dv8tion.jda.core.entities.MessageChannel;
 
 public class CoinFlipCommand extends AbstractCommandChain
 {
-	private File headsFile = new File("images/heads.png");
-	private File tailsFile = new File("images/tails.png");
+	private File[] files;
 	
 	public CoinFlipCommand(CommandEnum command)
 	{
 		this.command = command;
+		files = new File[2];
+		
+		files[0] = new File("images/heads.png");
+		files[1] = new File("images/tails.png");
 	}
 
 	@Override
 	protected void process(Message message)
 	{
-		MessageChannel channel = message.getChannel();
-		
 		try
 		{
-			if(Math.round(Math.random()) == 0)
-			{
-				channel.sendFile(headsFile, null).queue();
-			}
-			else
-			{
-				channel.sendFile(tailsFile, null).queue();
-			}
+			int randomNumber = (int)Math.round(Math.random());
+			File randomFile = files[randomNumber];
+			
+			message.getChannel().sendFile(randomFile, null).queue();
 		}
 		catch(IOException e)
 		{

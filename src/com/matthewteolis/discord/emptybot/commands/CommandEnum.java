@@ -8,7 +8,7 @@ import com.matthewteolis.discord.emptybot.exceptions.CommandNotFoundException;
 
 public enum CommandEnum
 {
-	;
+	CHOOSE(Bot.getPrefix() + "choose (.*)");
 	
 	private String regex;
 	
@@ -30,5 +30,10 @@ public enum CommandEnum
 			}
 		}
 		throw new CommandNotFoundException();
+	}
+	
+	public String getRegex()
+	{
+		return regex;
 	}
 }

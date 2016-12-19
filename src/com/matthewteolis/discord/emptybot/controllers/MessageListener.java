@@ -37,7 +37,7 @@ public class MessageListener extends ListenerAdapter
 			}
 			catch(CommandNotFoundException e)
 			{
-				channel.sendMessage("Command not found").queue();
+//				channel.sendMessage("Command not found").queue();
 			}
 		}
 	}

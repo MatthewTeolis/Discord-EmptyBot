@@ -4,6 +4,8 @@ public class CommandChainFactory
 {
 	public static AbstractCommandChain getChainOfCommands()
 	{
-		return null;
+		AbstractCommandChain chooseCommand = new ChooseCommand(CommandEnum.CHOOSE);
+		
+		return chooseCommand;
 	}
 }

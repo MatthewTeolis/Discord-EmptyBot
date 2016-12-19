@@ -1,5 +1,7 @@
 package com.matthewteolis.discord.emptybot.helpers;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,6 +14,11 @@ public class Helper
 	public static void botPrint(MessageChannel channel, String message)
 	{
 		channel.sendMessage(message).queue();
+	}
+	
+	public static void botSendFile(MessageChannel channel, File file) throws IOException
+	{
+		channel.sendFile(file, null).queue();
 	}
 	
 	public static String[] parseParameters(String message, String delimiter)

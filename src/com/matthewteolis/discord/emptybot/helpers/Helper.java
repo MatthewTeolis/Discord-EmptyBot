@@ -16,15 +16,15 @@ public class Helper
 	
 	public static String[] parseParameters(String message, String delimiter)
 	{
-	    String[] rawOptions = message.split(delimiter);
-	    String[] parsedOptions = new String[rawOptions.length];
-	        
-	    for(int i = 0; i < rawOptions.length; i++)
-	    {
-	        parsedOptions[i] = rawOptions[i].trim();
-	    }
-	        
-	    return parsedOptions;
+		String[] rawParameters = message.split(delimiter);
+		String[] parsedParameters = new String[rawParameters.length];
+		    
+		for(int i = 0; i < rawParameters.length; i++)
+		{
+		    parsedParameters[i] = rawParameters[i].trim();
+		}
+		    
+		return parsedParameters;
 	}
 	
 	public static String[] getParameters(CommandEnum command, String message, String delimiter)

@@ -4,6 +4,8 @@ public class CommandChainFactory
 {
 	public static AbstractCommandChain getChainOfCommands()
 	{
-		return null;
+		AbstractCommandChain rngCommand = new RngCommand(CommandEnum.RNG);
+		
+		return rngCommand;
 	}
 }

@@ -8,7 +8,7 @@ import com.matthewteolis.discord.emptybot.exceptions.CommandNotFoundException;
 
 public enum CommandEnum
 {
-	;
+	RNG(Bot.getPrefix() + "rng (.*)");
 	
 	private String regex;
 	

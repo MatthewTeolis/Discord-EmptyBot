@@ -10,7 +10,8 @@ public enum CommandEnum
 {
 	CHOOSE(Bot.getPrefix() + "choose (.*)"), 
 	RNG(Bot.getPrefix() + "rng (.*)"),
-	COINFLIP(Bot.getPrefix() + "coinflip");
+	COINFLIP(Bot.getPrefix() + "coinflip"),
+	DICE(Bot.getPrefix() + "dice");
 	
 	private String regex;
 	

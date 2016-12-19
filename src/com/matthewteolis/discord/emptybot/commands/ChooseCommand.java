@@ -15,11 +15,11 @@ public class ChooseCommand extends AbstractCommandChain
 	protected void process(Message message) 
 	{
 		String messageContent = message.getContent();
-		String[] options = Helper.getParameters(command, messageContent, ";");
+		String[] parameters = Helper.getParameters(command, messageContent, ";");
 		
-		int random = (int) (Math.random() * options.length) + 1;
+		int random = (int) (Math.random() * parameters.length) + 1;
 		
-		String result = options[random - 1];
+		String result = parameters[random - 1];
 		
 		Helper.botPrint(message.getChannel(), "Chosen result: `" + result + "`");
 	}

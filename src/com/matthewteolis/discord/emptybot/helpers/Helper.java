@@ -32,8 +32,14 @@ public class Helper
 		Pattern pattern = Pattern.compile(command.getRegex());
 		Matcher matcher = pattern.matcher(message);
 		matcher.matches();
-		String[] parameters = parseParameters(matcher.group(), delimiter);
+		String[] parameters = parseParameters(matcher.group(1), delimiter);
 		
 		return parameters;
+	}
+	
+	public static int randomWithRange(int min, int max)
+	{
+		int range = (max - min) + 1;
+		return (int)(Math.random() * range) + min;
 	}
 }
